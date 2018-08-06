@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中的使用animate.css库</title>
+    <script src="vue.js"></script>
+    <link rel="stylesheet" href="animate.css">
+    <style>
+        /*@keyframes bounce-in {*/
+            /*0%{*/
+                /*transform: scale(0);*/
+            /*}*/
+            /*50%{*/
+                /*transform: scale(1.5);*/
+            /*}*/
+            /*100%{*/
+                /*transform: scale(0);*/
+            /*}*/
+        /*}*/
+        /*.fade-enter-active{*/
+            /*transform-origin: left center;*/
+            /*animation: bounce-in 1s;*/
+        /*}*/
+        /*.fade-leave-active{*/
+            /*transform-origin: left center;*/
+            /*animation: bounce-in 1s reverse;*/
+        /*}*/
+        .fade-enter,.fade-leave-to{
+            opacity: 0;
+        }
+        .fade-enter-active,.fade-leave-active{
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--enter-active-class,leave-active-class自定义class必须用-->
+    <!--页面一加载的时候有效果是appear-class-->
+    <!--:duration="{enter:5000,leave:10000}" 可以设置入场出场-->
+    <!--动画钩子before-enter；enter;after-enter-->
+    <transition
+            name="fade"
+            :duration="2000"
+            appear
+            enter-active-class="animated swing fade-enter-active"
+            leave-active-class="animated shake fade-leave-active"
+            appear-active-class="animated swing"
+            @before-enter="handleBeforeEnter"
+            @enter="handleEnter"
+            @after-enter="handleAfterEnter"
+    >
+        <div v-show="show">hello world</div>
+    </transition>
+    <button @click="handleClick">切换</button>
+</div>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            show:true
+        },
+        methods:{
+            handleClick:function(){
+                this.show = !this.show
+            },
+            handleBeforeEnter:function(el){
+                el.style.color = 'red'
+            },
+            handleEnter:function(el,done){
+                //运行动画在这里触发
+                setTimeout(()=>{
+                    el.style.color='green';
+                    done()
+                },2000)
+            },
+            handleAfterEnter:function(el){
+                el.style.color='#000'
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

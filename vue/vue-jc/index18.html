@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中多个元素或组件的过度</title>
+    <script src="vue.js"></script>
+    <style>
+        .v-enter,.v-leave-to{
+            opacity: 0;
+        }
+        .v-enter-active,.v-leave-active{
+            transition: opacity 1s;
+        }
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <!--vue里面有个mode可以多个组件动画切换过度-->
+    <transition mode="in-out">
+        <div v-if="show" key="hello">hello world</div>
+        <div v-else key="bye">Bye World</div>
+    </transition>
+    <button @click="handleClick">toggle</button>
+</div>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            show:true
+        },
+        methods:{
+            handleClick:function(){
+                this.show = !this.show
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

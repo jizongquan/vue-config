@@ -1,0 +1,33 @@
+#首先要安装node
+#nodejs.org下载
+#安装git
+#git-scm.com
+#npm install --global vue-cli
+#vue init webpack my-project
+#cd my-project
+#npm install
+#npm run dev
+
+#移动端需要安装
+npm install fastclick --save
+用的时候在main.js里面fastClick.attach(document.body)
+css用stylus
+安装 npm install stylus --save  npm install stylus-loader --save
+此项目html font-size为50px 因为是二倍图比如86就是43 1rem=50px
+
+vue插件https://github.com/vuejs/awesome-vue
+
+#轮播 npm install vue-awesome-swiper@2.6.7 --save
+
+npm install axios
+
+用到了better-scroll
+npm install better-scroll
+
+vuex使用
+import Vue from 'vue'
+import Vuex from 'vuex'
+npm install vuex --save
+
+如果白屏
+npm install babel-polyfill --save

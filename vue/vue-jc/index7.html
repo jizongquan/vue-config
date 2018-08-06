@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中的样式绑定</title>
+    <script src="vue.js"></script>
+    <style>
+        .actived{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!--<div id="app">
+    <div @click="handleDivClick"
+         :class="{actived:isActived}" >
+        hellow world</div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            isActived:false
+        },
+        methods:{
+            handleDivClick:function(){
+                this.isActived = !this.isActived
+            }
+        }
+    })
+</script>-->
+
+<div id="app">
+    <div @click="handleDivClick"
+         :class="[actived]" >
+        hellow world</div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            actived:''
+        },
+        methods:{
+            handleDivClick:function(){
+//                if(this.actived==='actived'){
+//                    this.actived = ''
+//                }else{
+//                    this.actived = 'actived';
+//                };
+                this.actived=this.actived==='actived' ? '':'actived';
+
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

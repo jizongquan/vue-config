@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue条件渲染,列表渲染</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<!--条件渲染-->
+<!--<div id="app">-->
+    <!--<div v-if="show">{{message}}</div>-->
+    <!--<div v-else>bye</div>-->
+
+    <!--<div v-show="show">{{message}}</div>-->
+<!--</div>-->
+<!--<script>-->
+    <!--var vm = new Vue({-->
+        <!--el:'#app',-->
+        <!--data:{-->
+            <!--message:'aaa',-->
+            <!--show:false-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+
+<!--数组的循环 可以用template做占位符-->
+<!--Vue.set(vm.list,'1(这里是只下标)','3')-->
+
+<!--vm.$set(vm.list,'1(这里是只下标)','3')-->
+
+
+<!--<div id="app">-->
+    <!--<div v-for="(item,index) of list">{{item}}-&#45;&#45;{{index}}</div>-->
+<!--</div>-->
+
+<!--<script>-->
+    <!--//push shift把数组第一项删除  pop用于删除并返回数组的最后一个元素  unshift往数组第一项加内容 splice数组删除截取 sort数组排序 reserse对数组取反-->
+    <!--var vm = new Vue({-->
+        <!--el:'#app',-->
+        <!--data:{-->
+            <!--list:['1','2','3','4','5']-->
+        <!--}-->
+    <!--})-->
+<!--</script>-->
+
+
+<!--循环对象-->
+<!--往userInfo里面加对象可以用set-->
+<!--Vue.set(vm.userInfo,'address','heilongjiang')-->
+<div id="app">
+    <div v-for="(item,key,index) of userInfo">
+        {{key}}---{{item}}--{{index}}
+    </div>
+</div>
+
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            userInfo:{
+                name:'dell',
+                age:28,
+                generator:'male'
+            }
+        }
+    })
+</script>
+</body>
+</html>
